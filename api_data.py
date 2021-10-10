@@ -38,3 +38,4 @@ def collect_api_data():
 
 if __name__ == '__main__':
     collect_api_data()
+    
