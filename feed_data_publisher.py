@@ -33,3 +33,5 @@ while True:
                 break
             
     prev_top_news = articles[0]
+
+    
