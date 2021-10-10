@@ -20,3 +20,5 @@ def collect_rss_feed_data():
 
 if __name__ == '__main__':
     collect_rss_feed_data()
+
+    
