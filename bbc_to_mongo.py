@@ -5,3 +5,4 @@ df = pd.read_csv('bbc-text.csv')
 print(df.shape)
 import pdb;pdb.set_trace()
 write_to_mongo(df)
+
