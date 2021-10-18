@@ -45,3 +45,5 @@ if __name__ == '__main__':
     df = read_from_mongo()
     import pdb;pdb.set_trace()
     #delete_from_mongo('many', {'extra_col1':''})
+
+    
