@@ -20,11 +20,13 @@ def read_from_mongo():
     except Exception as err:
         raise Exception(err)
 
-def write_to_mongo(df):
+def write_to_mongo(data):
+    if isinstance(data,list):
+        data = pd.DataFrame(data)
     try:
         collection = get_mongo_connection()
-        collection.insert_many(df.to_dict('records'))
-        print(f'inserted {df.shape[0]} rows in to mongodb')
+        collection.insert_many(data.to_dict('records'))
+        print(f'inserted {data.shape[0]} rows in to mongodb')
         return True
     except Exception as err:
         raise Exception(err)
