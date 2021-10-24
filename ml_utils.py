@@ -110,7 +110,7 @@ def retrain_model(data):
     y = pdf.loc[:,'category_id']
     X_tfidf = tfidf_vec.fit_transform(X)
     with open('svc_classifier.pkl', 'rb') as fid:
-        svc_mdl = pPickle.load(fid)
+        svc_mdl = pickle.load(fid)
     svc_mdl.fit(X_tfidf, y)
     with open('svc_classifier.pkl', 'wb') as fid:
         pickle.dump(svc_mdl, fid)
