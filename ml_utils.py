@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_recall_fscore_support as score
-
+import pickle
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -85,6 +85,8 @@ def train_model():
     # Get precision, recall, f1 scores
     precision, recall, f1score, support = score(y_test, y_pred, average='micro')
     print(f'accuracy-{accuracy}\nprecision-{precision}\nrecall-{recall}\nf1score-{f1score}')
+    with open('svc_classifier.pkl', 'wb') as fid:
+        pickle.dump(svc_mdl, fid)
     # return svc_mdl
 
 def predict_category(text):
@@ -92,6 +94,8 @@ def predict_category(text):
     #tfidf_vec = TfidfVectorizer(stop_words='english', ngram_range=(1, 2), tokenizer=tokenize_and_lemmatize, max_features=10000, use_idf=True)
     text = clean_text(text)
     vec_text = tfidf_vec.transform([text])
+    with open('svc_classifier.pkl', 'rb') as fid:
+        svc_mdl = pickle.load(fid)
     pred_cat = svc_mdl.predict(vec_text)
     print(pred_cat)
     return id_to_category[pred_cat[0]]
@@ -105,7 +109,11 @@ def retrain_model(data):
     X = pdf.loc[:,'clean_text']
     y = pdf.loc[:,'category_id']
     X_tfidf = tfidf_vec.fit_transform(X)
+    with open('svc_classifier.pkl', 'rb') as fid:
+        svc_mdl = pPickle.load(fid)
     svc_mdl.fit(X_tfidf, y)
+    with open('svc_classifier.pkl', 'wb') as fid:
+        pickle.dump(svc_mdl, fid)
     return svc_mdl
 
 def spark_collect_preprocess_data():
