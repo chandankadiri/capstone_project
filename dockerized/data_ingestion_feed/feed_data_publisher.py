@@ -6,8 +6,10 @@ from time import sleep
 import sys,json
 import pandas as pd
 from rss_feed_data import collect_rss_feed_data
-BROKER = 'localhost:9092'
-TOPIC = 'news_artcles'
+#BROKER = 'localhost:9092'
+#TOPIC = 'news_artcles'
+BROKER = 'broker:29092'
+TOPIC = 'capstone.news_articles'
 
 try:
     p = KafkaProducer(bootstrap_servers=BROKER)                                                                         
