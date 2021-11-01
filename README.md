@@ -25,22 +25,22 @@ Project Milestones:
 
 Run below commands on docker host.
 
-docker-compose up
-docker-compose exec mongo1 /usr/bin/mongo --eval '''if (rs.status()["ok"] == 0) { rsconf = { _id : "rs0", members: [ { _id : 0, host : "mongo1:27017", priority: 1.0 } ] }; rs.initiate(rsconf); } rs.conf();'''
-curl localhost:8083/connector-plugins | jq
-curl http://localhost:8083/connectors/mongo-sink/status | jq
-curl -X POST -H "Content-Type: application/json" -d @sink-connector.json http://localhost:8083/connectors | jq
-curl localhost:8083/connector-plugins | jq
-docker-compose exec broker bash
-kafka-topics --zookeeper zookeeper:2181 --create --topic capstone.news_articles --partitions 1 --replication-factor 1
-You can access the UI at http://host_ip:8501/ You can access the swagger ui at http://host_ip:8889/
+1. docker-compose up
+2. docker-compose exec mongo1 /usr/bin/mongo --eval '''if (rs.status()["ok"] == 0) { rsconf = { _id : "rs0", members: [ { _id : 0, host : "mongo1:27017", priority: 1.0 } ] }; rs.initiate(rsconf); } rs.conf();'''
+3. curl localhost:8083/connector-plugins | jq
+4. curl http://localhost:8083/connectors/mongo-sink/status | jq
+5.curl -X POST -H "Content-Type: application/json" -d @sink-connector.json http://localhost:8083/connectors | jq
+6. curl localhost:8083/connector-plugins | jq
+7. docker-compose exec broker bash
+8. kafka-topics --zookeeper zookeeper:2181 --create --topic capstone.news_articles --partitions 1 --replication-factor 1
+9. You can access the UI at http://host_ip:8501/ You can access the swagger ui at http://host_ip:8889/
 
 Steps for Monolithic code:
-Run kafka zookeeper service.
-Run kafka server start i.e. brokerr start.
-Create topic news_articles.
-Run api_data_publisher.py in one terminal.
-Run feed_data_publisher.py in one terminal.
-Run main.py in another terminal for swagger UI.
-Rum streamlit run streamlit_ui.py for UI in another terminal.
-You can access the UI at http://host_ip:8501/ You can access the swagger ui at http://host_ip:8889/
+1. Run kafka zookeeper service.
+2. Run kafka server start i.e. brokerr start.
+3. Create topic news_articles.
+4.Run api_data_publisher.py in one terminal.
+5.Run feed_data_publisher.py in one terminal.
+6.Run main.py in another terminal for swagger UI.
+7.Run streamlit run streamlit_ui.py for UI in another terminal.
+8. You can access the UI at http://host_ip:8501/ You can access the swagger ui at http://host_ip:8889/
