@@ -20,8 +20,8 @@ Run below commands on docker host.
 - docker-compose exec broker bash
 - kafka-topics --zookeeper zookeeper:2181 --create --topic capstone.news_articles --partitions 1 --replication-factor 1
 
-You can access the UI at http://<your host ip>:8501/
-You can access the swagger ui at http://<your host ip>:8889/
+You can access the UI at http://host_ip:8501/
+You can access the swagger ui at http://host_ip:8889/
 
 ### Steps for Monolithic code:
 
@@ -34,6 +34,6 @@ You can access the swagger ui at http://<your host ip>:8889/
 - Rum streamlit run streamlit_ui.py for UI in another terminal.
 
 
-You can access the UI at http://<your host ip>:8501/
-You can access the swagger ui at http://<your host ip>:8889/
+You can access the UI at http://host_ip:8501/
+You can access the swagger ui at http://host_ip:8889/
 
