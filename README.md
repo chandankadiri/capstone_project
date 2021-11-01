@@ -44,3 +44,4 @@ Steps for Monolithic code:
 6.Run main.py in another terminal for swagger UI.
 7.Run streamlit run streamlit_ui.py for UI in another terminal.
 8. You can access the UI at http://host_ip:8501/ You can access the swagger ui at http://host_ip:8889/
+
