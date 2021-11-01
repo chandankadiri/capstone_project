@@ -1,0 +1,9 @@
+kafka-python
+pandas
+requests
+pyspark
+scikit-learn
+nltk
+fastapi
+uvicorn
+pymongo

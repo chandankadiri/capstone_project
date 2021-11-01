@@ -1,0 +1,14 @@
+{
+    "name": "mongo-sink",
+    "config": {
+        "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+        "tasks.max": "1",
+        "topics": "capstone.news_articles",
+        "connection.uri": "mongodb://mongo1:27017",
+        "database": "capstone",
+        "collection": "news_articles",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable": "false"
+    }
+}

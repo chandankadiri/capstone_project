@@ -1,0 +1,4 @@
+pandas
+requests
+streamlit==0.88.0
+beautifulsoup4

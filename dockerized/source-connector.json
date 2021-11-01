@@ -1,0 +1,13 @@
+{
+    "name": "newsarticles-connector",
+    "config": {
+        "connector.class": "com.mongodb.kafka.connect.MongoSourceConnector",
+        "tasks.max": "1",
+        "connection.uri":"mongodb://mongo1:27017",
+        "mode": "incrementing",
+        "database":"capstone",
+        "collection":"news_articles",
+        "topic.prefix": "capstone",
+        "name": "newsarticles-connector"
+    }
+}
